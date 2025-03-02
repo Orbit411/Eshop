@@ -64,7 +64,7 @@ const AddProductForm = ({ onSubmit, onImageChange, productData, loading }) => {
       {loading && <div>Uploading images and adding product...</div>} {/* عرض حالة التحميل */}
       <form
         onSubmit={handleSubmit}
-        style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", alignItems: "center", margin: "0 auto" }}
+        style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", alignItems: "center", margin: "0 auto",textAlign:"center" }}
       >
         <div className="form-group">
           <label>Product Name:</label>
