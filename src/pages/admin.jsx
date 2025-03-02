@@ -471,7 +471,7 @@ const Admin = () => {
   };
 
   return (
-    <div style={{ minHeight: "80vh", position: 'relative', display: "flex" }}>
+    <div style={{ minHeight: "80vh", position: 'relative', }}>
       <Sidebar choose={choose} isSidebarOpen={isSidebarOpen} />
 
       <div className="mainn">

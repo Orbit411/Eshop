@@ -15,16 +15,8 @@ setclosed(isSidebarOpen)
   return (
     <>
       <div className={`side  `} style={{left:closed==false? "-100%":"0" , }} >
-        <a
-          href="#"
-        
-          className="text-primary font-semibold tracking-widest text-2xl uppercase sm:text-3xl"
-        >
-          Eshop    
-        </a>
-        <button className="close-button" onClick={() => {
-            setclosed(false)
-          }}><MdClose /></button>
+    
+    
         <ul>
           <li
             onClick={() => {
@@ -49,7 +41,7 @@ setclosed(isSidebarOpen)
           </li>
         </ul>
 
-        <div className="by">By Codeorbit team</div>
+    
       </div>
     </>
   );
