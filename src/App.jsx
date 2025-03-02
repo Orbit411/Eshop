@@ -54,7 +54,8 @@ const AdminRoute = () => {
   // const validSecretKey = "zezo-1832003z";  // الـ secretKey يجب أن يحتوي على القيمتين معًا
   
   // إذا كان الـ secretKey في الـ URL هو "12345-zezo"، نعرض صفحة الـ Admin، وإذا كان خاطئًا، نعيد التوجيه للصفحة الرئيسية
-  if (secretKey === import.meta.env.VITE_ADMIN_KEY) {
+  // import.meta.env.VITE_ADMIN_KEY
+  if (secretKey ==="zezo-1832003z" ) {
     return <Admin />;
   } else {
     return <Navigate to="/" />;  // إذا كان الـ secretKey غير صحيح، نعيد التوجيه للصفحة الرئيسية
