@@ -47,7 +47,7 @@ const App = () => {
 const AdminRoute = () => {
   const { secretKey } = useParams();
   
-  if (secretKey === "zezo-1832003z") {
+  if (secretKey === import.meta.env.VITE_ADMIN_KEY) {
     return <Admin />;
   } else {
     return <Navigate to="/" />;
