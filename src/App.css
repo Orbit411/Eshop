@@ -1,0 +1,22 @@
+
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80vh;  /* تحديد الارتفاع بنسبة 80% من ارتفاع النافذة */
+}
+
+.spinner {
+  border: 8px solid #f3f3f3;  /* اللون الفاتح للخلفية */
+  border-top: 8px solid #3498db;  /* اللون الأزرق للعجلة */
+  border-radius: 50%;  /* يجعل العنصر دائري */
+  width: 50px;  /* حجم الـ spinner */
+  height: 50px;  /* حجم الـ spinner */
+  animation: spin 1s linear infinite;  /* التحريك بشكل دائري */
+}
+
+/* إنشاء حركة الدوران */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
