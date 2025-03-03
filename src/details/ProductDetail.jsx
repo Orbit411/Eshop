@@ -58,7 +58,7 @@ const ProductDetail = () => {
       };
     
       await addDoc(collection(db, "orders"), orderData);
-      Swal.fire({ icon: "success", title: "Order placed successfully!" });
+      Swal.fire({ icon: "success", title: "تم طلب المنتج سيتم التواصل معك قريبا !" });
       setName("");
       setPhone("");
       setnote('')

@@ -22,25 +22,29 @@ const Products = () => {
         if (orderData.productId) {
           const productId = orderData.productId;
 
-          productCountData[productId] = productCountData[productId] || {
-            id: productId,
-            name: orderData.productName,
-            price: orderData.productPrice,
-            image: orderData.productImages ? orderData.productImages[0] : "",
-            orders: 0,
-          };
+          // التحقق مما إذا كان المنتج موجودًا في المنتجCountData
+          if (!productCountData[productId]) {
+            productCountData[productId] = {
+              id: productId,
+              name: orderData.productName,
+              price: orderData.productPrice,
+              image: orderData.productImages ? orderData.productImages[0] : "",
+              orders: 0,
+              totalQuantity: 0,  // لحساب مجموع الكميات
+            };
+          }
           
+          // إضافة كمية المنتج في الطلب
           productCountData[productId].orders += 1;
+          productCountData[productId].totalQuantity += orderData.productQuantity;
         }
       });
 
-    
-      
       // تحويل الكائن إلى مصفوفة وترتيب المنتجات حسب الأكثر طلبًا
       const sortedProducts = Object.values(productCountData)
         .sort((a, b) => b.orders - a.orders)
-        .filter((product) => product.orders > 10); // ✅ عرض المنتجات التي تجاوزت 10 طلبات فقط
-      
+        .filter((product) => product.totalQuantity > 10); // ✅ عرض المنتجات التي تجاوزت 10 كمية
+
       setProducts(sortedProducts);
     } catch (error) {
       console.error("Error fetching orders:", error);
@@ -86,11 +90,9 @@ const Products = () => {
                     />
                   </div>
                   <div className="space-y-2">
-                    <p className="text-xs text-gray-500">Price: {data.price}</p>
-                    <p className="font-bold line-clamp-1">{data.name}</p>
-                    <p className="text-sm text-gray-600 dark:text-gray-400">
-                      Ordered {data.orders} times
-                    </p>
+                    <p className="text-lg text-gray-500 "> {data.price} EGP</p>
+                    <p className="font-bold line-clamp-1 text-xl">{data.name}</p>
+                
                   </div>
                 </motion.div>
               </SwiperSlide>
