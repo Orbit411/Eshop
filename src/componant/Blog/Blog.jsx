@@ -56,7 +56,7 @@ const Products = () => {
       // تحويل الكائن إلى مصفوفة وترتيب المنتجات حسب الأكثر طلبًا
       const sortedProducts = Object.values(productCountData)
         .sort((a, b) => b.orders - a.orders)
-        .filter((product) => product.totalQuantity > 10); // ✅ عرض المنتجات التي تجاوزت 10 كمية
+        .filter((product) => product.totalQuantity > 5); // ✅ عرض المنتجات التي تجاوزت 10 كمية
 
       setProducts(sortedProducts);
     } catch (error) {
