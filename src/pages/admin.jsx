@@ -475,11 +475,9 @@ const Admin = () => {
       <Sidebar choose={choose} isSidebarOpen={isSidebarOpen} />
 
       <div className="mainn">
-        <div className="head" style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-          <h1>Hello Mr/Ziad
-            <div className="menu" onClick={toggleSidebar} style={{ cursor: "pointer" }}>
-              <IoMenu size={30} />
-            </div>
+        <div className="head" style={{ display: "flex", justifyContent: "space-evenly", alignItems: "center" }}>
+          <h1  className='text-red-600 '>CodeOrbit
+          
           </h1>
           {(currentpage === "Products" || currentpage === "Orders") && (
             <div className="searchbar" style={{ display: "flex", justifyContent: "center", alignItems: "center" }}>
