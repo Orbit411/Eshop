@@ -6,6 +6,7 @@ import { Autoplay } from "swiper/modules";
 import "swiper/css";
 import { motion } from "framer-motion";
 import Heading from "../shared/Heading";
+import { Link } from "react-router-dom";
 
 const Products = () => {
   const [products, setProducts] = useState([]);
@@ -88,27 +89,30 @@ const Products = () => {
             style={{ padding:"20px" }}
           >
             {products.map((data, index) => (
-              <SwiperSlide key={data.id}>
-                <motion.div
-                  initial={{ opacity: 0, y: 50 }}  // تأثير البداية
-                  whileInView={{ opacity: 1, y: 0 }}  // تأثير عند التمرير
-                  transition={{ delay: 0.2 * index, duration: 0.8 }}  // تأثير الحركة
-                  className="bg-white dark:bg-gray-900 rounded-xl shadow-lg p-4"
-                >
-                  <div className="overflow-hidden rounded-2xl mb-2">
-                    <img
-                      src={data.image}
-                      alt={data.name}
-                      className="w-full h-80 object-contain rounded-lg mb-4 hover:scale-105 duration-500"
-                    />
-                  </div>
-                  <div className="space-y-2">
-                    <p className="text-xs text-gray-500">Price: {data.price}</p>
-                    <p className="font-bold line-clamp-1">{data.name}</p>
-                  </div>
-                </motion.div>
-              </SwiperSlide>
-            ))}
+  <SwiperSlide key={data.id}>
+    <Link to={`/details/${data.id}`}>
+      <motion.div
+        initial={{ opacity: 0, y: 50 }}  // تأثير البداية
+        whileInView={{ opacity: 1, y: 0 }}  // تأثير عند التمرير
+        transition={{ delay: 0.2 * index, duration: 0.8 }}  // تأثير الحركة
+        className="bg-white dark:bg-gray-900 rounded-xl shadow-lg p-4"
+      >
+        <div className="overflow-hidden rounded-2xl mb-2">
+          <img
+            src={data.image}
+            alt={data.name}
+            className="w-full h-80 object-contain rounded-lg mb-4 hover:scale-105 duration-500"
+          />
+        </div>
+        <div className="space-y-2">
+          <p className=" text-gray-500 text-xl font-extrabold">Price: {data.price}</p>
+          <p className="font-bold line-clamp-1 text-lg">{data.name}</p>
+        </div>
+      </motion.div>
+    </Link>
+  </SwiperSlide>
+))}
+
           </Swiper>
         ) : (
           <p className="text-center text-gray-600 dark:text-gray-400 mt-4">
