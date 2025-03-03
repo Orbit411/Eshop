@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 const Orderstable = ({ orders, loading, deleteorder }) => {
   if (loading) {
@@ -6,6 +6,15 @@ const Orderstable = ({ orders, loading, deleteorder }) => {
     <div className="spinner"></div>
   </div>; // عرض حالة التحميل
   }
+  useEffect(() => {
+    const fetch = () => {
+      orders.forEach(order => {
+        console.log(order.createdAt);
+      });
+    }
+    fetch()
+    
+  },[])
 
   return (
     <div className="table-container" style={{ position: 'relative' }}>
@@ -17,6 +26,7 @@ const Orderstable = ({ orders, loading, deleteorder }) => {
               <th>Order ID</th>
               <th>Customer Name</th>
               <th>Phone</th>
+              <th>Time</th>
               <th>Note</th>
               <th>Product</th>
               <th>Price</th>
@@ -30,11 +40,13 @@ const Orderstable = ({ orders, loading, deleteorder }) => {
           </thead>
           <tbody>
             {orders.map((order, index) => (
+              
               <tr key={order.id}>
                 <td>{index + 1}</td>
                 <td>{order.customerName}</td>
                 <td>{order.customerPhone}</td>
-                <td>{order.note}</td>
+                <td>{order.createdAt.toDate().toLocaleString()}</td>
+                <td>{order.note ==""?"NO":order.note}</td>
                 <td>{order.productName}</td>
                 <td>{order.productPrice} EGP</td>
                 <td>{order.discount} %</td>

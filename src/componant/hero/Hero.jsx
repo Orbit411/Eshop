@@ -82,9 +82,9 @@ const Hero = ({ handleOrderPopup }) => {
                         data-aos="zoom-out"
                         data-aos-duration="500"
                         data-aos-once="true"
-                        className="text-5xl sm:text-6xl lg:text-7xl font-bold"
+                        className="text-5xl sm:text-6xl lg:text-7xl font-bold text-red-600"
                       >
-                        {data.discount} % {/* عرض وصف المنتج */}
+                        {data.discount} %  <span className="text-5xl"> OFF</span>
                       </h1>
                       <h1
                         data-aos="zoom-out"
