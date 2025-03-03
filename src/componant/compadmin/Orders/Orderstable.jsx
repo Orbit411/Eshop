@@ -6,15 +6,7 @@ const Orderstable = ({ orders, loading, deleteorder }) => {
     <div className="spinner"></div>
   </div>; // عرض حالة التحميل
   }
-  useEffect(() => {
-    const fetch = () => {
-      orders.forEach(order => {
-        console.log(order.createdAt);
-      });
-    }
-    fetch()
-    
-  },[])
+
 
   return (
     <div className="table-container" style={{ position: 'relative' }}>
