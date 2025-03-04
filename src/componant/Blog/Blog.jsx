@@ -105,7 +105,7 @@ const Products = () => {
           />
         </div>
         <div className="space-y-2">
-          <p className=" text-gray-500 text-xl font-extrabold">Price: {data.price}</p>
+          <p className=" text-gray-500 text-xl font-extrabold">Price: {data.price} EGP</p>
           <p className="font-bold line-clamp-1 text-lg">{data.name}</p>
         </div>
       </motion.div>
