@@ -11,11 +11,12 @@ const ProductCard = ({ data }) => {
 
   return (
     <>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+      <div className="flex flex-wrap justify-center gap-4">
         {data.slice(0, visibleImages).map((product) => (
           <Link to={`/details/${product.id}`} key={product.id}>
             <motion.div
               className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300"
+              style={{ width: "345px" }} // يمكنك تعديل العرض حسب الحاجة
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -30,11 +31,11 @@ const ProductCard = ({ data }) => {
                 viewport={{ once: true }}
                 transition={{ delay: 0.2 }}
               />
-              <div style={{ display: "flex",justifyContent:"space-between",alignItems:"center" }}>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
                 <h3 className="text-lg font-semibold">{product.name}</h3>
                 {product.discount && (
                   <p className="text-red-600 text-lg mt-1">
-                    {product.discount}%  OFF
+                    {product.discount}% OFF
                   </p>
                 )}
               </div>

@@ -4,7 +4,7 @@ import { useCollection } from 'react-firebase-hooks/firestore';
 import { collection } from 'firebase/firestore';
 import { db } from '../firebase/config';
 import { Link, useParams } from 'react-router-dom';
-import { motion } from "framer-motion"; 
+import { motion } from "framer-motion";
 
 const Maincatgory = () => {
   const [productsslider, setProductsslider] = useState([]);
@@ -47,11 +47,12 @@ const Maincatgory = () => {
         {/* Header section */}
         <Heading title="Our Product" subtitle={"Explore Our Product"} />
         {/* body section */}
-        <div style={{ minHeight: "90vh" }} className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+        <div style={{ minHeight: "90vh" }} className="flex flex-wrap justify-center gap-6">
           {productsslider.map((product, index) => (
             <Link to={`/details/${product.id}`} key={product.id}>
               <motion.div
                 className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg transform hover:scale-105 transition-transform duration-300"
+                style={{ width: "340px" }} // يمكنك تعديل العرض حسب الحاجة
                 initial={{ opacity: 0, y: 50 }} // البداية
                 whileInView={{ opacity: 1, y: 0 }} // النهاية عندما يكون العنصر مرئيًا
                 viewport={{ once: true }} // حدد أن الحركة تحدث مرة واحدة فقط
